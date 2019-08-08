@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+  schedule-web:
+    "build":
+      "context": "./"
+      "dockerfile": "Dockerfile-apache"
+    container_name: schedule_php_web
+    depends_on:
+      - schedule-bdd
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - "80:80"
+    stdin_open: true
+    tty: true
+  schedule-bdd:
+    image: mysql:8.0.17
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: schedule
+      MYSQL_USER: schedule
+      MYSQL_PASSWORD: mysql
+    volumes:
+      - ./database:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+  schedule-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "81:80"
+    depends_on:
+      - schedule-bdd
+    environment:
+      PMA_HOST: schedule-bdd
+      PMA_USER: root
+      PMA_PASSWORD: mysql
