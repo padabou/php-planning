@@ -1,0 +1,156 @@
+
+section {
+	width: 100%;
+	float: left;
+}
+
+footer {
+	width: 100%;
+	float: left;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+nav #navbarNav ul {
+	margin: auto;
+}
+
+.form-event {
+	margin: auto;
+	width: 50%;
+}
+
+.content {
+	position: relative;
+	min-height: 100px;
+	z-index: 10;
+	width: 100%;
+	text-align: center;
+	display: grid;
+}
+
+.logo {
+	padding-top: 1rem;
+	text-align: center;
+	width: 100%;
+}
+
+.logo img{
+	width: 128px;
+}
+
+.site-flex-item {
+	background-color: #2bbae8;
+	padding: 1em;
+	margin: 1em;
+}
+
+.text-paragraphe {
+	margin-bottom: 1em;
+}
+
+.event-detail {
+	width: 50%;
+	margin: auto auto 1em;
+}
+
+
+.event-detail form{
+	float: right;
+}
+
+/* SCHEUDLE  */
+.week {
+	display: flex;
+	width: 100%;
+	min-height: 5em;
+}
+
+.day {
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	max-width: 14.285%;
+}
+
+.labelDay {
+	text-align: center;
+}
+
+.labelDayEvent {
+	 text-align: center;
+	 color: black;
+ }
+
+.labelDayNoEvent {
+	text-align: center;
+	color: red;
+}
+
+.week:first-of-type{
+	justify-content: right;
+}
+.week:last-of-type{
+	justify-content: left;
+}
+.month {
+	max-width: 70%;
+	margin: 20px auto;
+	text-align: left;
+}
+
+.day {
+	color: #F98909;
+	padding: 5px;
+	background-color: transparentize(white, 0.30);
+	box-shadow:
+			-1px -1px #F9A440,
+			inset -1px -1px 0 0 #F9A440;
+
+}
+
+@media screen and (max-width: 768px) {
+	.text-align-middle {
+		padding-top: 1%;
+		text-align: justify;
+	}
+	.auto {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+
+
+	section {
+		width: 100%;
+		float: none;
+		margin-top: 0rem;
+	}
+
+
+	.text-paragraphe {
+		margin-bottom: 1em;
+		width: 100%;
+	}
+
+
+	.week {
+		flex-direction: column;
+	}
+
+	.day {
+		max-width: 100%;
+	}
+
+	.form-event {
+		margin: auto;
+		width: 90%;
+	}
+
+	.event-detail {
+		width: 90%;
+		margin: auto;
+	}
+}
