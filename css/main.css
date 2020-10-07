@@ -68,11 +68,8 @@ nav #navbarNav ul {
 	min-height: 5em;
 }
 
-.day {
-	flex-grow: 1;
-	flex-shrink: 1;
-	flex-basis: 0;
-	max-width: 14.285%;
+.weekend {
+	background-color: #fdb9b9;
 }
 
 .labelDay {
@@ -108,7 +105,10 @@ nav #navbarNav ul {
 	box-shadow:
 			-1px -1px #F9A440,
 			inset -1px -1px 0 0 #F9A440;
-
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	max-width: 14.285%;
 }
 
 @media screen and (max-width: 768px) {
