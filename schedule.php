@@ -36,7 +36,18 @@ $labelWeek = array("1" => "Monday", "2" => "Tuesday", "3" => "Wednesday", "4" =>
 
 </head>
 <body>
-<?php include "header.php"; ?>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/schedule.php">Schedule</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/scheduleManagement.php">Management</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <section>
 
     <article>
@@ -72,12 +83,7 @@ $labelWeek = array("1" => "Monday", "2" => "Tuesday", "3" => "Wednesday", "4" =>
                             if($dateTmp->format("w") == 1 || $i == 1) {
                                 echo '<div class="week">';
                             }
-                            if($dateTmp->format("w") == 0 || $dateTmp->format("w") == 6) {
-                                $cellStyle = "day weekend";
-                            } else {
-                                $cellStyle = "day";
-                            }
-                            echo '<div class="'.$cellStyle.'"><div class="labelDay">' . $labelWeek[$dateTmp->format("w")] . " " . $dateTmp->format("d") . "</div>";
+                            echo '<div class="day"><div class="labelDay">' . $labelWeek[$dateTmp->format("w")] . " " . $dateTmp->format("d") . "</div>";
                             if(!isset($event[ $dateTmp->format("d")])) {
                                 echo "<div class='labelDayNoEvent'>No Event</div>";
                             } else {
