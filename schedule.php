@@ -1,10 +1,12 @@
 <?php
-include("dbconnect.php");
+
 try{
+    include("dbconnect.php");
 }catch(PDOException $e){
     var_dump($e->getMessage());
     echo "Database connexion error";
 }
+
 $bdd->query("SET NAMES 'utf8'");
 
 if(isset($_GET['month'])) {
@@ -12,6 +14,7 @@ if(isset($_GET['month'])) {
 } else {
     $dateToGet = date("m-Y");
 }
+
 $date = date_create_from_format("d-m-Y", "01-" . $dateToGet);
 $date_next_month = date_create_from_format('d-m-Y', "01-" . $dateToGet)->add(new DateInterval('P1M'));
 $date_previous_month = date_create_from_format('d-m-Y', "01-" . $dateToGet)->sub(new DateInterval('P1M'));
